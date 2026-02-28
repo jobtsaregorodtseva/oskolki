@@ -1,0 +1,726 @@
+/* ============================================================
+   ОСКОЛКИ ВОЗДУХА — style.css
+   Этап 1: Рабочий скелет (правки 28.02.2026)
+   ============================================================ */
+
+/* ── Шрифты ── */
+@font-face {
+  font-family: 'BRO Regular';
+  src: url('../fonts/BRORegular.woff2') format('woff2'),
+       url('../fonts/BRORegular.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── CSS-переменные ── */
+:root {
+  --bg-dark:      #0D0D0D;
+  --accent-red:   #C00000;
+  --accent-bright:#FF0000;
+  --text-white:   #FFFFFF;
+  --text-grey:    #AAAAAA;
+  --text-dim:     #666666;
+
+  --font-heading: 'BRO Regular', 'Impact', 'Arial Black', sans-serif;
+  --font-body:    'Nunito Sans', 'Montserrat', system-ui, sans-serif;
+  --nav-height:   64px;
+}
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Утилиты ── */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 6vw, 72px);
+  color: var(--accent-red);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* ── Плейсхолдеры ── */
+.placeholder {
+  background: #2A2A2A;
+  border: 2px dashed #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.placeholder__icon {
+  font-size: 32px;
+  opacity: 0.5;
+}
+
+/* ── Кнопки ── */
+.btn-red {
+  display: inline-block;
+  background: var(--accent-red);
+  color: var(--text-white);
+  border: 2px solid var(--accent-red);
+  padding: 14px 28px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-red:hover {
+  background: transparent;
+  color: var(--accent-red);
+}
+
+.btn-red--outline {
+  background: transparent;
+  color: var(--text-white);
+  border-color: var(--accent-red);
+}
+
+.btn-red--outline:hover {
+  background: var(--accent-red);
+  color: var(--text-white);
+}
+
+/* ============================================================
+   НАВИГАЦИЯ
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #222;
+  height: var(--nav-height);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Пустой слот слева (под будущий логотип) */
+.nav__logo-slot {
+  flex: 1;
+}
+
+/* Nav по центру */
+.nav__inner > nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* CTA + бургер справа */
+.nav__actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.nav__links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav__links a {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-grey);
+  transition: color 0.25s ease;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.nav__links a:hover {
+  color: var(--text-white);
+  border-bottom-color: var(--accent-red);
+}
+
+/* Кнопка «Связаться» в хедере */
+.nav__cta {
+  padding: 10px 20px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Бургер */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+}
+
+.nav__burger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--text-white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav__burger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__burger.is-active span:nth-child(2) { opacity: 0; }
+.nav__burger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Мобильное меню */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 13, 13, 0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.nav__mobile.is-open { display: flex; }
+
+.nav__mobile a {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+
+.nav__mobile a:hover { color: var(--accent-red); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--bg-dark);
+}
+
+.hero__name {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 10vw, 120px);
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-shadow: 2px 4px 0 var(--accent-red);
+  margin-bottom: 40px;
+}
+
+.hero__photo {
+  width: 100%;
+  max-width: 1100px;
+  height: clamp(240px, 45vw, 500px);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   СЕКЦИИ (общие отступы)
+   ============================================================ */
+.section {
+  padding: 80px 0;
+  background: var(--bg-dark);
+}
+
+/* ============================================================
+   БИОГРАФИЯ
+   ============================================================ */
+.bio__video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+
+.bio__video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.bio__arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.bio__arrow {
+  font-size: 28px;
+  color: var(--text-dim);
+  cursor: default;
+  user-select: none;
+  font-weight: bold;
+}
+
+.bio__text {
+  max-width: 760px;
+  font-size: 18px;
+  color: var(--text-grey);
+  line-height: 1.8;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bio__text p + p {
+  margin-top: 20px;
+}
+
+/* ============================================================
+   СОСТАВ
+   ============================================================ */
+.members__list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Нечётные: фото СЛЕВА, текст СПРАВА → текст left */
+.member-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.member-card .member-card__info {
+  text-align: left;
+}
+
+/* Чётные: фото СПРАВА (rtl), текст СЛЕВА → текст right */
+.member-card--even {
+  direction: rtl;
+}
+.member-card--even > * {
+  direction: ltr;
+}
+.member-card--even .member-card__info {
+  text-align: right;
+}
+
+.member-card__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-width: 320px;
+  justify-self: center;
+}
+
+.member-card__info {
+  padding: 20px 0;
+}
+
+.member-card__name {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 5vw, 56px);
+  color: var(--accent-red);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.member-card__role {
+  font-size: 17px;
+  color: var(--text-white);
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.member-card__desc {
+  font-size: 16px;
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   ДИСКОГРАФИЯ
+   ============================================================ */
+/* Сужаем контент до 900px */
+.music__wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.music__tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.track-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.track-row--reverse {
+  direction: rtl;
+}
+.track-row--reverse > * {
+  direction: ltr;
+}
+
+.track-row__player iframe {
+  width: 100%;
+  max-width: 450px;
+  height: 200px;
+  border: none;
+}
+
+.track-row__num {
+  font-family: var(--font-heading);
+  font-size: 52px;
+  color: var(--accent-red);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.track-row__title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4vw, 42px);
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.track-row__desc {
+  font-size: 16px;
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+.music__bandlink {
+  display: block;
+  text-align: center;
+  font-size: 17px;
+  color: var(--accent-red);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  margin-top: 8px;
+}
+
+.music__bandlink:hover {
+  color: var(--accent-bright);
+}
+
+/* ============================================================
+   КОНЦЕРТЫ — «Доска объявлений»
+   ============================================================ */
+.concerts__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.concert-card {
+  background: #FFFEF0;
+  color: #1A1A1A;
+  padding: 20px;
+  width: 220px;
+  min-height: 200px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.concert-card:hover {
+  box-shadow: 5px 5px 16px rgba(0,0,0,0.7);
+}
+
+.concert-card:nth-child(1) { transform: rotate(-2deg); }
+.concert-card:nth-child(2) { transform: rotate(1.5deg); }
+.concert-card:nth-child(3) { transform: rotate(-1deg); }
+.concert-card:nth-child(4) { transform: rotate(2.5deg); }
+.concert-card:nth-child(5) { transform: rotate(-1.5deg); }
+.concert-card:nth-child(6) { transform: rotate(0.8deg); }
+.concert-card:nth-child(7) { transform: rotate(-2.2deg); }
+
+.concert-card:hover { transform: rotate(0deg) scale(1.03); }
+
+.concert-card::before {
+  content: '●';
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: var(--accent-red);
+  margin-bottom: 4px;
+  margin-top: -8px;
+}
+
+.concert-card__name {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.concert-card__sub {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.concert-card__photo {
+  width: 100%;
+  height: 120px;
+  margin-top: auto;
+}
+
+.concert-card__photo.placeholder {
+  background: #DDD;
+  border-color: #AAA;
+  color: #888;
+  font-size: 11px;
+}
+
+/* ============================================================
+   СОТРУДНИЧЕСТВО
+   ============================================================ */
+.booking__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: #0A0A0A;
+  border-top: 1px solid #222;
+  padding: 48px 0 32px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.footer__socials a {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-grey);
+  transition: color 0.2s;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+}
+
+.footer__socials a:hover {
+  color: var(--text-white);
+  border-color: var(--accent-red);
+}
+
+.footer__booking {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.footer__booking a {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+
+.footer__booking a:hover {
+  color: var(--accent-bright);
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   АДАПТИВ
+   ============================================================ */
+
+/* Планшет / мобильный — < 768px */
+@media (max-width: 768px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__inner > nav {
+    display: none;
+  }
+
+  /* Текст секций — влево */
+  .section-title {
+    text-align: left;
+  }
+
+  .bio__text {
+    text-align: left;
+  }
+
+  .booking__buttons {
+    justify-content: flex-start;
+  }
+
+  /* Участники — вертикально, все тексты влево */
+  .member-card,
+  .member-card--even {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .member-card--even .member-card__info,
+  .member-card .member-card__info {
+    text-align: left;
+  }
+
+  .member-card__photo {
+    max-width: 260px;
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Треки — вертикально */
+  .track-row,
+  .track-row--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  /* Кнопки букинга — вертикально */
+  .booking__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-red {
+    text-align: center;
+  }
+}
+
+/* Маленький мобайл — < 375px */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .concert-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .concerts__grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Широкий десктоп — 1280px+ */
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .section {
+    padding: 100px 0;
+  }
+}
+
+/* Очень широкий — 1920px */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
