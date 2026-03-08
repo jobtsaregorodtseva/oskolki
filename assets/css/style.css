@@ -139,27 +139,26 @@ a {
 .nav__inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100%;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 /* Пустой слот слева (под будущий логотип) */
 .nav__logo-slot {
-  flex: 1;
+  display: none;
 }
 
-/* Nav по центру */
+/* Nav влево */
 .nav__inner > nav {
-  flex: 1;
   display: flex;
-  justify-content: center;
 }
 
 /* CTA + бургер справа */
 .nav__actions {
-  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 16px;
 }
 
@@ -305,7 +304,7 @@ a {
 .bio__video-wrap {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 24px;
 }
 
@@ -331,7 +330,7 @@ a {
 }
 
 .bio__text {
-  max-width: 760px;
+  max-width: 900px;
   font-size: 18px;
   color: var(--text-grey);
   line-height: 1.8;
