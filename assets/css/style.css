@@ -624,23 +624,13 @@ a {
 
 /* Планшет / мобильный — < 768px */
 @media (max-width: 768px) {
-  .nav__links,
-  .nav__cta {
+  .nav {
     display: none;
   }
 
-  .nav__burger {
-    display: none;
-  }
-
-  .nav__inner > nav {
-    display: none;
-  }
-
-  .nav__mobile-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+  .hero {
+    min-height: auto;
+    padding: 28px 20px;
   }
 
   .section {
