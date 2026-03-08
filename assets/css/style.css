@@ -437,7 +437,7 @@ a {
 .music__tracks {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
   margin-bottom: 40px;
 }
 
