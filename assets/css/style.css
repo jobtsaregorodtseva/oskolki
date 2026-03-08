@@ -625,23 +625,23 @@ a {
   /* Текст секций — влево + крупнее BRO */
   .section-title {
     text-align: left;
-    font-size: clamp(45px, 9vw, 72px);
-  }
-
-  .hero__name {
-    font-size: clamp(50px, 12vw, 96px);
-  }
-
-  .member-card__name {
-    font-size: clamp(40px, 7.5vw, 56px);
-  }
-
-  .track-row__num {
     font-size: 40px;
   }
 
+  .hero__name {
+    font-size: 45px;
+  }
+
+  .member-card__name {
+    font-size: 35px;
+  }
+
+  .track-row__num {
+    font-size: 35px;
+  }
+
   .track-row__title {
-    font-size: clamp(36px, 6vw, 42px);
+    font-size: 35px;
   }
 
   .bio__text {
