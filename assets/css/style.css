@@ -629,7 +629,8 @@ a {
   }
 
   .hero__name {
-    font-size: 45px;
+    font-size: min(45px, 11vw);
+    white-space: nowrap;
   }
 
   .member-card__name {
