@@ -123,6 +123,15 @@ a {
   color: var(--text-white);
 }
 
+.nav__mobile-buttons {
+  display: none;
+}
+
+.btn-red--sm {
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
 /* ============================================================
    НАВИГАЦИЯ
    ============================================================ */
@@ -331,7 +340,7 @@ a {
 
 .bio__text {
   max-width: 900px;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-grey);
   line-height: 1.8;
   margin: 0 auto;
@@ -621,11 +630,21 @@ a {
   }
 
   .nav__burger {
-    display: flex;
+    display: none;
   }
 
   .nav__inner > nav {
     display: none;
+  }
+
+  .nav__mobile-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .section {
+    padding: 28px 0;
   }
 
   html {
