@@ -535,6 +535,13 @@ a {
 /* ============================================================
    СОТРУДНИЧЕСТВО
    ============================================================ */
+.booking__subtitle {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
 .booking__buttons {
   display: flex;
   flex-wrap: wrap;
