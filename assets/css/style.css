@@ -628,9 +628,13 @@ a {
     display: none;
   }
 
-  /* Текст секций — влево + крупнее BRO */
+  html {
+    font-size: 14.4px;
+  }
+
+  /* Заголовки секций — по центру + крупнее BRO */
   .section-title {
-    text-align: left;
+    text-align: center;
     font-size: 40px;
   }
 
@@ -672,7 +676,8 @@ a {
   }
 
   .member-card__photo {
-    max-width: 260px;
+    width: 100%;
+    max-width: none;
     aspect-ratio: 3 / 4;
   }
 
