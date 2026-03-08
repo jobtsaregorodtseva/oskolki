@@ -264,7 +264,7 @@ a {
 
 .hero__name {
   font-family: var(--font-heading);
-  font-size: clamp(40px, 10vw, 120px);
+  font-size: clamp(36px, 8vw, 96px);
   color: var(--text-white);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -282,7 +282,7 @@ a {
 
 .hero__photo {
   width: 100%;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -351,13 +351,15 @@ a {
   display: flex;
   flex-direction: column;
   gap: 60px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Нечётные: фото СЛЕВА, текст СПРАВА → текст left */
 .member-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 2fr 3fr;
+  gap: 24px;
   align-items: center;
 }
 
@@ -379,11 +381,10 @@ a {
 .member-card__photo {
   width: 100%;
   aspect-ratio: 3 / 4;
-  max-width: 320px;
-  justify-self: center;
   overflow: hidden;
 }
-.member-card__photo video {
+.member-card__photo video,
+.member-card__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -496,7 +497,7 @@ a {
    КОНЦЕРТЫ — шахматная сетка афиш
    ============================================================ */
 .concerts-grid {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -511,7 +512,7 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-width: 780px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
