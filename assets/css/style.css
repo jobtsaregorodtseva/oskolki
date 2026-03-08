@@ -622,9 +622,26 @@ a {
     display: none;
   }
 
-  /* Текст секций — влево */
+  /* Текст секций — влево + крупнее BRO */
   .section-title {
     text-align: left;
+    font-size: clamp(48px, 9vw, 72px);
+  }
+
+  .hero__name {
+    font-size: clamp(54px, 12vw, 96px);
+  }
+
+  .member-card__name {
+    font-size: clamp(48px, 7.5vw, 56px);
+  }
+
+  .track-row__num {
+    font-size: 78px;
+  }
+
+  .track-row__title {
+    font-size: clamp(36px, 6vw, 42px);
   }
 
   .bio__text {
