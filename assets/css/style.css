@@ -737,6 +737,8 @@ a {
     order: 1;
     padding-bottom: 12px;
     text-align: center;
+    align-self: stretch;
+    width: 100%;
   }
 
   .member-card .member-card__photo,
