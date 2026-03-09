@@ -697,6 +697,11 @@ a {
     direction: ltr;
   }
 
+  .track-row__player iframe {
+    max-width: 100%;
+    height: 100px;
+  }
+
   /* Кнопки букинга — вертикально */
   .booking__buttons {
     flex-direction: column;
