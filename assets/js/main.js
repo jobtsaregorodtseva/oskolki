@@ -54,6 +54,30 @@
 
   window.addEventListener('scroll', setActiveLink, { passive: true });
 
+  /* ── Карусель участников — точки-индикаторы ── */
+  const membersList = document.querySelector('.members__list');
+  const dotsContainer = document.getElementById('membersDots');
+
+  if (membersList && dotsContainer) {
+    const cards = membersList.querySelectorAll('.member-card');
+
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i === 0 ? ' is-active' : '');
+      dot.addEventListener('click', () => {
+        membersList.scrollTo({ left: cards[i].offsetLeft, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    membersList.addEventListener('scroll', () => {
+      const index = Math.round(membersList.scrollLeft / membersList.offsetWidth);
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+    }, { passive: true });
+  }
+
   /* ── Добавляем стиль активной ссылки через JS (чтобы не захламлять CSS) ── */
   const styleActive = document.createElement('style');
   styleActive.textContent = '.nav__links a.is-active { color: #fff; border-bottom-color: #C00000; }';

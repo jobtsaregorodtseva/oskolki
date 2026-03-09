@@ -351,6 +351,10 @@ a {
   margin-top: 20px;
 }
 
+.members__dots {
+  display: none;
+}
+
 /* ============================================================
    СОСТАВ
    ============================================================ */
@@ -694,7 +698,26 @@ a {
     scroll-snap-type: x mandatory;
     gap: 0;
     scrollbar-width: none;
-    padding-bottom: 12px;
+    padding-bottom: 0;
+  }
+
+  .members__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .members__dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    transition: background 0.2s;
+  }
+
+  .members__dots .dot.is-active {
+    background: var(--accent-red);
   }
 
   .members__list::-webkit-scrollbar {
