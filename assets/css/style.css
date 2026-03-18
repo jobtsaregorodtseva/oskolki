@@ -395,6 +395,7 @@ a {
 
 /* Чётные: фото СПРАВА */
 .member-card--even {
+  grid-template-columns: 3fr 2fr;
   grid-template-areas:
     "name photo"
     "info photo";
