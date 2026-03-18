@@ -413,6 +413,10 @@ a {
   text-align: right;
 }
 
+.member-card--even .member-card__name {
+  text-align: right;
+}
+
 .member-card__photo {
   width: 100%;
   aspect-ratio: 3 / 4;
