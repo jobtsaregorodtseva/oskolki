@@ -315,6 +315,14 @@ a {
   width: 100%;
   max-width: 900px;
   margin: 0 auto 24px;
+  aspect-ratio: 16 / 9;
+}
+
+.bio__video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
 .bio__video-placeholder {
