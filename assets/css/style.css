@@ -918,20 +918,18 @@ a {
     padding: 56px 0;
   }
 
-  .concerts-row-top {
+  .concerts-grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
-  .concerts-row-bottom {
-    grid-template-columns: 1fr 1fr;
-    max-width: 100%;
-  }
-
+  .concerts-row-top,
+  .concerts-row-bottom,
   .concerts-row-new {
-    grid-template-columns: 1fr 1fr;
-    max-width: 100%;
-    margin-left: 0;
+    display: contents;
   }
+
 }
 
 /* Широкий десктоп — 1280px+ */
