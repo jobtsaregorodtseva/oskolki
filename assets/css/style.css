@@ -889,6 +889,7 @@ a {
 
   .track-mobile-card {
     display: flex;
+    align-items: flex-end;
   }
 
   /* Футер — ссылки в строку */
