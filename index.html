@@ -3,429 +3,421 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <!-- SEO -->
   <title>Осколки воздуха — поп-панк группа из Новосибирска</title>
   <meta name="description" content="Осколки воздуха — поп-панк группа из Новосибирска. Энергичный поп-панк с синтезаторами. Букинг концертов и фестивалей." />
   <meta property="og:title" content="Осколки воздуха — поп-панк из Новосибирска" />
   <meta property="og:description" content="Читаем мангу. Цитируем Чацкого. Рвём глотку." />
   <meta property="og:type" content="website" />
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <!-- Стили -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Video switcher styles */
+    .bio__video-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .bio__video-switcher button {
+      background: transparent;
+      color: var(--text-grey, #AAAAAA);
+      border: 1px solid var(--text-grey, #AAAAAA);
+      padding: 8px 20px;
+      font-family: 'Nunito Sans', 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 0;
+    }
+    .bio__video-switcher button.active {
+      background: var(--accent-red, #C00000);
+      color: #fff;
+      border-color: var(--accent-red, #C00000);
+    }
+    .bio__video-switcher button:hover:not(.active) {
+      color: #fff;
+      border-color: #fff;
+    }
+    .bio__video-frame { display: none; }
+    .bio__video-frame.active { display: block; }
+
+    /* Flat 4-column concert grid */
+    .concerts-grid--flat {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1024px) {
+      .concerts-grid--flat { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .concerts-grid--flat { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .concerts-grid--flat { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       НАВИГАЦИЯ
-       ============================================================ -->
-  <header class="nav">
-    <div class="container nav__inner">
-      <!-- Слот под будущий логотип -->
-      <div class="nav__logo-slot"></div>
-
-      <nav aria-label="Основная навигация">
-        <ul class="nav__links">
-          <li><a href="#biography">Биография</a></li>
-          <li><a href="#members">Состав</a></li>
-          <li><a href="#music">Дискография</a></li>
-          <li><a href="#concerts">Концерты</a></li>
-          <li><a href="#booking">Сотрудничество</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav__actions">
-        <a href="#" class="btn-red nav__cta">Связаться</a>
-      </div>
-
-      <div class="nav__mobile-buttons">
-        <a href="https://t.me/platoniqa" class="btn-red btn-red--outline btn-red--sm" target="_blank" rel="noopener noreferrer">Связаться с менеджером</a>
-        <a href="#" class="btn-red btn-red--sm" download>Скачать тех. райдер</a>
-      </div>
+<!-- ============================================================
+     НАВИГАЦИЯ
+============================================================ -->
+<header class="nav">
+  <div class="container nav__inner">
+    <div class="nav__logo-slot"></div>
+    <nav aria-label="Основная навигация">
+      <ul class="nav__links">
+        <li><a href="#biography">Биография</a></li>
+        <li><a href="#members">Состав</a></li>
+        <li><a href="#music">Дискография</a></li>
+        <li><a href="#concerts">Концерты</a></li>
+        <li><a href="#booking">Сотрудничество</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <a href="#" class="btn-red nav__cta">Связаться</a>
     </div>
-  </header>
+    <div class="nav__mobile-buttons">
+      <a href="https://t.me/platoniqa" class="btn-red btn-red--outline btn-red--sm" target="_blank" rel="noopener noreferrer">Связаться с менеджером</a>
+      <a href="assets/files/rider.txt" class="btn-red btn-red--sm" download>Скачать тех. райдер</a>
+    </div>
+  </div>
+</header>
 
-  <!-- Мобильное меню -->
-  <nav class="nav__mobile" id="mobileNav" aria-label="Мобильная навигация">
-    <a href="#biography">Биография</a>
-    <a href="#members">Состав</a>
-    <a href="#music">Дискография</a>
-    <a href="#concerts">Концерты</a>
-    <a href="#booking">Сотрудничество</a>
-  </nav>
+<!-- Мобильное меню -->
+<nav class="nav__mobile" id="mobileNav" aria-label="Мобильная навигация">
+  <a href="#biography">Биография</a>
+  <a href="#members">Состав</a>
+  <a href="#music">Дискография</a>
+  <a href="#concerts">Концерты</a>
+  <a href="#booking">Сотрудничество</a>
+</nav>
 
-  <main>
+<main>
 
-    <!-- ============================================================
-         1. HERO
-         ============================================================ -->
-    <section class="hero" id="hero">
-      <h1 class="hero__name">Осколки воздуха</h1>
+<!-- ============================================================
+     1. HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <h1 class="hero__name">Осколки воздуха</h1>
+  <div class="hero__photo">
+    <img src="assets/img/hero-group2.jpg" alt="Осколки воздуха — групповое фото" />
+  </div>
+</section>
 
-      <div class="hero__photo">
-        <img src="assets/img/hero-group2.jpg" alt="Осколки воздуха — групповое фото" />
-      </div>
-    </section>
+<!-- ============================================================
+     2. БИОГРАФИЯ
+============================================================ -->
+<section class="section section--alt" id="biography">
+  <div class="container">
+    <h2 class="section-title">Познакомимся?</h2>
 
-    <!-- ============================================================
-         2. БИОГРАФИЯ
-         ============================================================ -->
-    <section class="section section--alt" id="biography">
-      <div class="container">
-        <h2 class="section-title">Познакомимся?</h2>
+    <!-- Переключатель видео -->
+    <div class="bio__video-switcher">
+      <button class="active" data-video="vizitka">Визитка</button>
+      <button data-video="live">Лайв</button>
+    </div>
 
-        <div class="bio__video-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/NqzbVEJ4qPY"
-            title="Осколки воздуха"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+    <!-- VK Видео — визитка -->
+    <div class="bio__video-wrap bio__video-frame active" id="video-vizitka">
+      <iframe
+        src="https://vk.com/video_ext.php?oid=-224850711&id=456239087&hd=2"
+        title="Осколки воздуха — визитка"
+        frameborder="0"
+        allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- Rutube — лайв -->
+    <div class="bio__video-wrap bio__video-frame" id="video-live">
+      <iframe
+        src="https://rutube.ru/play/embed/55b85b76e90694569b96ed629153d1cc/"
+        title="Осколки воздуха — лайв выступление"
+        frameborder="0"
+        allow="clipboard-write; autoplay"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="bio__text">
+      <p>
+        Мы — «Осколки воздуха». Поп-панк из Новосибирска с синтезаторами, энергичными гитарами и текстами, за которые не стыдно.
+      </p>
+      <p>
+        Собрались в июне 2024-го, за первый год — 5 синглов, 10+ концертов и фестивали ДЖЭМ, BIG SUMMER FEST, «Кино на траве». Мы — весёлые раздолбаи с качественным звуком: плотные гитары врезаются в синтезаторные пэды, бешеный бит не даёт стоять на месте, а тексты — про то, каково быть умным в мире, который этого не ценит. Энергично, честно, громко.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. СОСТАВ
+============================================================ -->
+<section class="section" id="members">
+  <div class="container">
+    <h2 class="section-title">Состав</h2>
+    <div class="members__list">
+
+      <!-- СТЕПА -->
+      <article class="member-card">
+        <h3 class="member-card__name">Степа</h3>
+        <div class="member-card__photo">
+          <img src="assets/img/member-stepa.png" alt="Степа">
         </div>
-
-        <div class="bio__text">
-          <p>
-            Мы — «Осколки воздуха». Поп-панк из Новосибирска с синтезаторами, энергичными гитарами и текстами, за которые не стыдно.
-          </p>
-          <p>
-            Собрались в июне 2024-го, за первый год — 5 синглов, 10+ концертов и фестивали ДЖЭМ, BIG SUMMER FEST, «Кино на траве». Мы — весёлые раздолбаи с качественным звуком: плотные гитары врезаются в синтезаторные пэды, бешеный бит не даёт стоять на месте, а тексты — про то, каково быть умным в мире, который этого не ценит. Энергично, честно, громко.
-          </p>
+        <div class="member-card__info">
+          <p class="member-card__role">Вокал • Ритм-гитара • Тексты</p>
+          <p class="member-card__desc">Лидер и архитектор группы. Пишет тексты, собирает звук, держит всё вместе. На сцене — спокойная мощь, за сценой — стратег с блокнотом. Тот самый парень, который цитирует Грибоедова и тут же рвёт струны.</p>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- ============================================================
-         3. СОСТАВ
-         ============================================================ -->
-    <section class="section" id="members">
-      <div class="container">
-        <h2 class="section-title">Состав</h2>
-
-        <div class="members__list">
-
-          <!-- СТЕПА -->
-          <article class="member-card">
-            <h3 class="member-card__name">Степа</h3>
-            <div class="member-card__photo">
-              <img src="assets/img/member-stepa.png" alt="Степа">
-            </div>
-            <div class="member-card__info">
-              <p class="member-card__role">Вокал • Ритм-гитара • Тексты</p>
-              <p class="member-card__desc">Лидер и архитектор группы. Пишет тексты, собирает звук, держит всё вместе. На сцене — спокойная мощь, за сценой — стратег с блокнотом. Тот самый парень, который цитирует Грибоедова и тут же рвёт струны.</p>
-            </div>
-          </article>
-
-          <!-- МАША -->
-          <article class="member-card member-card--even">
-            <h3 class="member-card__name">Маша</h3>
-            <div class="member-card__photo">
-              <img src="assets/img/member-masha.png" alt="Маша">
-            </div>
-            <div class="member-card__info">
-              <p class="member-card__role">Клавишные • Бэк-вокал</p>
-              <p class="member-card__desc">Единственная, кто осталась от girl's band — и привнесла в группу то, без чего она бы не звучала. Абсолютный слух, внимание к каждой ноте. Контролирует чистоту звучания, подбирает партии и добавляет синтезаторам ту самую атмосферу, которая отличает нас от обычного панка.</p>
-            </div>
-          </article>
-
-          <!-- ВЛАД -->
-          <article class="member-card">
-            <h3 class="member-card__name">Влад</h3>
-            <div class="member-card__photo">
-              <img src="assets/img/member-vlad.png" alt="Влад">
-            </div>
-            <div class="member-card__info">
-              <p class="member-card__role">Ведущая гитара</p>
-              <p class="member-card__desc">Дух разрушения в чистом виде. Вносит в поп-панк мощную энергию — его риффы режут, а соло бьют наотмашь. Думает нестандартно, играет ещё нестандартнее. Если группа — это здание, то Влад — тот, кто красиво ломает стены.</p>
-            </div>
-          </article>
-
-          <!-- ВАНЯ -->
-          <article class="member-card member-card--even">
-            <h3 class="member-card__name">Ваня</h3>
-            <div class="member-card__photo">
-              <img src="assets/img/member-vanys.png" alt="Ваня">
-            </div>
-            <div class="member-card__info">
-              <p class="member-card__role">Барабаны</p>
-              <p class="member-card__desc">Энерджайзер, который заводит зал раньше, чем начинается первый куплет. Драйв, скорость, контакт с каждым в аудитории. Если на концерте у тебя мурашки — скорее всего, это от ваниного бита.</p>
-            </div>
-          </article>
-
-          <!-- МОТЯ -->
-          <article class="member-card">
-            <h3 class="member-card__name">Мотя</h3>
-            <div class="member-card__photo">
-              <img src="assets/img/1223.png" alt="Мотя">
-            </div>
-            <div class="member-card__info">
-              <p class="member-card__role">Бас</p>
-              <p class="member-card__desc">Тихая сила и фундамент всего звучания. Пока остальные шумят — Мотя держит структуру. Спокойный снаружи, бунтарь внутри. Тот басист, без которого всё рассыпается, но которого замечаешь не сразу — зато потом не можешь перестать слушать.</p>
-            </div>
-          </article>
-
+      <!-- НАСТЯ -->
+      <article class="member-card member-card--even">
+        <h3 class="member-card__name">Настя</h3>
+        <div class="member-card__photo">
+          <img src="assets/img/member-masha.png" alt="Настя">
         </div>
-        <div class="members__dots" id="membersDots"></div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         4. ДИСКОГРАФИЯ
-         ============================================================ -->
-    <section class="section section--alt" id="music">
-      <div class="container">
-        <h2 class="section-title">Что мы поём</h2>
-
-        <div class="music__wrap">
-        <div class="music__tracks">
-
-          <!-- Трек 1 — Эгоист -->
-          <div class="track-row">
-            <div class="track-row__player">
-              <iframe
-                frameborder="0"
-                allow="clipboard-write"
-                style="border:none;width:100%;max-width:450px;height:200px;"
-                src="https://music.yandex.ru/iframe/album/34021096/track/132943500"
-                title="Эгоист — Осколки воздуха на Яндекс.Музыке"
-              ></iframe>
-              <a class="track-mobile-card" href="https://music.yandex.ru/album/34021096/track/132943500" target="_blank" rel="noopener noreferrer">
-                <img src="https://avatars.yandex.net/get-music-content/13529784/cf0f9c73.a.34021096-1/m300x300" alt="Эгоист">
-                <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
-              </a>
-            </div>
-            <div class="track-row__info">
-              <div class="track-row__num">01</div>
-              <h3 class="track-row__title">Эгоист</h3>
-              <p class="track-row__desc">Первый трек группы и первая открытая рана. «Расскажи друзьям, что я мудак» — история расставания, где оба неправы, но больно только одному. Начинается с разговора, заканчивается тишиной. Между ними — синти-панк с надрывом.</p>
-            </div>
-          </div>
-
-          <!-- Трек 2 — Чацкий -->
-          <div class="track-row track-row--reverse">
-            <div class="track-row__player">
-              <iframe
-                frameborder="0"
-                allow="clipboard-write"
-                style="border:none;width:100%;max-width:450px;height:200px;"
-                src="https://music.yandex.ru/iframe/album/36751649/track/139437690"
-                title="Чацкий — Осколки воздуха на Яндекс.Музыке"
-              ></iframe>
-              <a class="track-mobile-card" href="https://music.yandex.ru/album/36751649/track/139437690" target="_blank" rel="noopener noreferrer">
-                <img src="https://avatars.yandex.net/get-music-content/15317937/dec23558.a.36751649-1/m300x300" alt="Чацкий">
-                <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
-              </a>
-            </div>
-            <div class="track-row__info">
-              <div class="track-row__num">02</div>
-              <h3 class="track-row__title">Чацкий</h3>
-              <p class="track-row__desc">Визитная карточка и панк-гимн для умных. Школьник-отличник, который задолбался быть белой вороной — горе от ума в школьной столовой. Начинается со скита про электронную сигарету, разгоняется до anthem-припева и не отпускает. Самый ироничный, самый быстрый, самый наш.</p>
-            </div>
-          </div>
-
-          <!-- Трек 3 — Минусы -->
-          <div class="track-row">
-            <div class="track-row__player">
-              <iframe
-                frameborder="0"
-                allow="clipboard-write"
-                style="border:none;width:100%;max-width:450px;height:200px;"
-                src="https://music.yandex.ru/iframe/album/38231758/track/142948155"
-                title="Минусы — Осколки воздуха на Яндекс.Музыке"
-              ></iframe>
-              <a class="track-mobile-card" href="https://music.yandex.ru/album/38231758/track/142948155" target="_blank" rel="noopener noreferrer">
-                <img src="assets/img/cover-minus.jpg" alt="Минусы">
-                <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
-              </a>
-            </div>
-            <div class="track-row__info">
-              <div class="track-row__num">03</div>
-              <h3 class="track-row__title">Минусы</h3>
-              <p class="track-row__desc">Самый тяжёлый и личный. Когда минусов в отношениях стало больше, чем плюсов — и ты наконец это признал. Меланхоличные синты, выверенный надрыв и текст, который бьёт в самое больное. Не для вечеринки — для наушников в три ночи.</p>
-            </div>
-          </div>
-
-          <!-- Трек 4 — Самурай -->
-          <div class="track-row track-row--reverse">
-            <div class="track-row__player">
-              <iframe
-                frameborder="0"
-                allow="clipboard-write"
-                style="border:none;width:100%;max-width:450px;height:200px;"
-                src="https://music.yandex.ru/iframe/album/39605257/track/145934738"
-                title="Самурай — Осколки воздуха на Яндекс.Музыке"
-              ></iframe>
-              <a class="track-mobile-card" href="https://music.yandex.ru/album/39605257/track/145934738" target="_blank" rel="noopener noreferrer">
-                <img src="assets/img/cover-samuray.jpg" alt="Самурай">
-                <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
-              </a>
-            </div>
-            <div class="track-row__info">
-              <div class="track-row__num">04</div>
-              <h3 class="track-row__title">Самурай</h3>
-              <p class="track-row__desc">Чистая скорость и ярость без тормозов. У самурая нет цели — только путь, катана и 170 BPM. Плотный гитарный звук, бешеный бит, припев, который хочется орать. Если нужен один трек для разогрева — это он.</p>
-            </div>
-          </div>
-
-          <!-- Трек 5 — Вернись -->
-          <div class="track-row">
-            <div class="track-row__player">
-              <iframe
-                frameborder="0"
-                allow="clipboard-write"
-                style="border:none;width:100%;max-width:450px;height:200px;"
-                src="https://music.yandex.kz/iframe/album/40518782/track/147888904"
-                title="Вернись — Осколки воздуха на Яндекс.Музыке"
-              ></iframe>
-              <a class="track-mobile-card" href="https://music.yandex.ru/album/40518782/track/147888904" target="_blank" rel="noopener noreferrer">
-                <img src="assets/img/cover-vernис.jpg" alt="Вернись">
-                <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
-              </a>
-            </div>
-            <div class="track-row__info">
-              <div class="track-row__num">05</div>
-              <h3 class="track-row__title">Вернись</h3>
-              <p class="track-row__desc">Трек для тех, кто 14 февраля не празднует. История про парня, который не смог отпустить — набранные и удалённые сообщения в три ночи, пустая половина кровати. Наша анти-валентинка — яростная тоска, которую проживаешь вместе с нами.</p>
-            </div>
-          </div>
-
-          <!-- Трек 6 — Жестоко -->
-          <div class="track-row track-row--reverse">
-            <div class="track-row__player">
-              <iframe
-                frameborder="0"
-                allow="clipboard-write"
-                style="border:none;width:100%;max-width:450px;height:200px;"
-                src="https://music.yandex.kz/iframe/album/41346346/track/149714228"
-                title="Жестоко — Осколки воздуха на Яндекс.Музыке"
-              ></iframe>
-              <a class="track-mobile-card" href="https://music.yandex.kz/album/41346346/track/149714228" target="_blank" rel="noopener noreferrer">
-                <img src="assets/img/cover-jestoko.jpg" alt="Жестоко">
-                <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
-              </a>
-            </div>
-            <div class="track-row__info">
-              <div class="track-row__num">06</div>
-              <h3 class="track-row__title">Жестоко</h3>
-              <p class="track-row__desc">Исповедь на стыке нежности и саморазрушения. Сирень, школьные уроки, джин — бытовые детали складываются в историю отношений, где нежность и боль неразличимы. Жёсткие гитарные риффы врезаются в мелодичные синты — как конфликт внутри героя, который не может ни остаться, ни уйти.</p>
-            </div>
-          </div>
-
+        <div class="member-card__info">
+          <p class="member-card__role">Клавишные • Бэк-вокал</p>
+          <p class="member-card__desc">Рокерша с солнечной улыбкой — улыбается, пока остальные рвут струны. Держит синтезаторную часть, добавляет атмосферу и не даёт нам превратиться в обычный гитарный панк.</p>
         </div>
+      </article>
 
-        <a
-          href="https://band.link/oskolkivozduha"
-          class="music__bandlink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Слушать на всех площадках →
-        </a>
-        </div><!-- /music__wrap -->
-      </div>
-    </section>
-
-    <!-- ============================================================
-         5. КОНЦЕРТЫ
-         ============================================================ -->
-    <section class="section" id="concerts">
-      <div class="container">
-        <h2 class="section-title">Мы уже были на...</h2>
-
-        <div class="concerts-grid">
-          <!-- Верхний ряд: 4 квадратных -->
-          <div class="concerts-row-top">
-            <div class="concert-card">
-              <img src="assets/img/poster-kino-na-trave.jpg" alt="Кино на траве" />
-            </div>
-            <div class="concert-card">
-              <img src="assets/img/poster-balkon-kvartirnik.jpg" alt="Квартирник на Балконе" />
-            </div>
-            <div class="concert-card">
-              <img src="assets/img/poster-sozdavay-ck19.jpg" alt="Форум Создавай — ЦК19" />
-            </div>
-            <div class="concert-card">
-              <img src="assets/img/poster-open-call-djem.jpg" alt="ДЖЭМ" />
-            </div>
-          </div>
-
-          <!-- Нижний ряд: 3 вытянутых, смещены -->
-          <div class="concerts-row-bottom">
-            <div class="concert-card">
-              <img src="assets/img/poster-bashnya.jpg" alt="Пикник на Башне" />
-            </div>
-            <div class="concert-card">
-              <img src="assets/img/poster-sodruzhestvo-concert.jpg" alt="Концерт в Содружестве" />
-            </div>
-            <div class="concert-card">
-              <img src="assets/img/poster-garazhka-big-summer-fest.jpg" alt="BIG SUMMER FEST Garazhka" />
-            </div>
-          </div>
-
-          <!-- Новые концерты -->
-          <div class="concerts-row-new">
-            <div class="concert-card">
-              <img src="assets/img/domrm.jpg" alt="Бар Дом РМ — 29 марта" />
-            </div>
-            <div class="concert-card">
-              <img src="assets/img/uzdechka.jpg" alt="Уzдечка — 3 мая" />
-            </div>
-            <div class="concert-card concert-card--upcoming">
-              <div class="concert-placeholder">
-                <p class="concert-placeholder__date">18 мая</p>
-                <p class="concert-placeholder__title">День НЭТИ</p>
-                <p class="concert-placeholder__info">17:30–22:00<br>Хоккейная коробка<br>ул. Блюхера 32</p>
-              </div>
-            </div>
-          </div>
+      <!-- ВЛАД -->
+      <article class="member-card">
+        <h3 class="member-card__name">Влад</h3>
+        <div class="member-card__photo">
+          <img src="assets/img/member-vlad.png" alt="Влад">
         </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         6. СОТРУДНИЧЕСТВО
-         ============================================================ -->
-    <section class="section section--alt" id="booking">
-      <div class="container">
-        <h2 class="section-title">Сотрудничество</h2>
-        <p class="booking__subtitle">Живой звук для вашего мероприятия — энергичный поп-панк сет до 90 минут</p>
-
-        <div class="booking__buttons">
-          <a href="https://t.me/platoniqa" class="btn-red btn-red--outline" target="_blank" rel="noopener noreferrer">
-            Связаться с менеджером
-          </a>
-          <a href="#" class="btn-red" download>
-            Скачать тех. райдер
-          </a>
+        <div class="member-card__info">
+          <p class="member-card__role">Ведущая гитара</p>
+          <p class="member-card__desc">Дух разрушения в чистом виде. Вносит в поп-панк мощную энергию — его риффы режут, а соло бьют наотмашь. Думает нестандартно, играет ещё нестандартнее. Если группа — это здание, то Влад — тот, кто красиво ломает стены.</p>
         </div>
-      </div>
-    </section>
+      </article>
 
-  </main>
+      <!-- ВАНЯ -->
+      <article class="member-card member-card--even">
+        <h3 class="member-card__name">Ваня</h3>
+        <div class="member-card__photo">
+          <img src="assets/img/member-vanys.png" alt="Ваня">
+        </div>
+        <div class="member-card__info">
+          <p class="member-card__role">Барабаны</p>
+          <p class="member-card__desc">Энерджайзер, который заводит зал раньше, чем начинается первый куплет. Драйв, скорость, контакт с каждым в аудитории. Если на концерте у тебя мурашки — скорее всего, это от ваниного бита.</p>
+        </div>
+      </article>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="footer">
-    <div class="container footer__inner">
-
-      <div class="footer__socials">
-        <a href="https://t.me/oskolkivozduha228" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <a href="https://vk.com/oskolkivozduha228" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
-        <a href="https://tiktok.com/@oskolkivozduha228" target="_blank" rel="noopener noreferrer">TikTok</a>
-      </div>
-
-      <p class="footer__copy">© 2024–2026 Осколки воздуха • Новосибирск</p>
+      <!-- МОТЯ -->
+      <article class="member-card">
+        <h3 class="member-card__name">Мотя</h3>
+        <div class="member-card__photo">
+          <img src="assets/img/1223.png" alt="Мотя">
+        </div>
+        <div class="member-card__info">
+          <p class="member-card__role">Бас</p>
+          <p class="member-card__desc">Тихая сила и фундамент всего звучания. Пока остальные шумят — Мотя держит структуру. Спокойный снаружи, бунтарь внутри. Тот басист, без которого всё рассыпается, но которого замечаешь не сразу — зато потом не можешь перестать слушать.</p>
+        </div>
+      </article>
 
     </div>
-  </footer>
+    <div class="members__dots" id="membersDots"></div>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script src="assets/js/main.js"></script>
+<!-- ============================================================
+     4. ДИСКОГРАФИЯ
+============================================================ -->
+<section class="section section--alt" id="music">
+  <div class="container">
+    <h2 class="section-title">Что мы поём</h2>
+    <div class="music__wrap">
+      <div class="music__tracks">
+
+        <!-- Трек 1 — Эгоист -->
+        <div class="track-row">
+          <div class="track-row__player">
+            <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;max-width:450px;height:200px;" src="https://music.yandex.ru/iframe/album/34021096/track/132943500" title="Эгоист — Осколки воздуха на Яндекс.Музыке"></iframe>
+            <a class="track-mobile-card" href="https://music.yandex.ru/album/34021096/track/132943500" target="_blank" rel="noopener noreferrer">
+              <img src="https://avatars.yandex.net/get-music-content/13529784/cf0f9c73.a.34021096-1/m300x300" alt="Эгоист">
+              <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
+            </a>
+          </div>
+          <div class="track-row__info">
+            <div class="track-row__num">01</div>
+            <h3 class="track-row__title">Эгоист</h3>
+            <p class="track-row__desc">Первый трек группы и первая открытая рана. «Расскажи друзьям, что я мудак» — история расставания, где оба неправы, но больно только одному. Начинается с разговора, заканчивается тишиной. Между ними — синти-панк с надрывом.</p>
+          </div>
+        </div>
+
+        <!-- Трек 2 — Чацкий -->
+        <div class="track-row track-row--reverse">
+          <div class="track-row__player">
+            <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;max-width:450px;height:200px;" src="https://music.yandex.ru/iframe/album/36751649/track/139437690" title="Чацкий — Осколки воздуха на Яндекс.Музыке"></iframe>
+            <a class="track-mobile-card" href="https://music.yandex.ru/album/36751649/track/139437690" target="_blank" rel="noopener noreferrer">
+              <img src="https://avatars.yandex.net/get-music-content/15317937/dec23558.a.36751649-1/m300x300" alt="Чацкий">
+              <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
+            </a>
+          </div>
+          <div class="track-row__info">
+            <div class="track-row__num">02</div>
+            <h3 class="track-row__title">Чацкий</h3>
+            <p class="track-row__desc">Визитная карточка и панк-гимн для умных. Школьник-отличник, который задолбался быть белой вороной — горе от ума в школьной столовой. Начинается со скита про электронную сигарету, разгоняется до anthem-припева и не отпускает. Самый ироничный, самый быстрый, самый наш.</p>
+          </div>
+        </div>
+
+        <!-- Трек 3 — Минусы -->
+        <div class="track-row">
+          <div class="track-row__player">
+            <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;max-width:450px;height:200px;" src="https://music.yandex.ru/iframe/album/38231758/track/142948155" title="Минусы — Осколки воздуха на Яндекс.Музыке"></iframe>
+            <a class="track-mobile-card" href="https://music.yandex.ru/album/38231758/track/142948155" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/cover-minus.jpg" alt="Минусы">
+              <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
+            </a>
+          </div>
+          <div class="track-row__info">
+            <div class="track-row__num">03</div>
+            <h3 class="track-row__title">Минусы</h3>
+            <p class="track-row__desc">Самый тяжёлый и личный. Когда минусов в отношениях стало больше, чем плюсов — и ты наконец это признал. Меланхоличные синты, выверенный надрыв и текст, который бьёт в самое больное. Не для вечеринки — для наушников в три ночи.</p>
+          </div>
+        </div>
+
+        <!-- Трек 4 — Самурай -->
+        <div class="track-row track-row--reverse">
+          <div class="track-row__player">
+            <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;max-width:450px;height:200px;" src="https://music.yandex.ru/iframe/album/39605257/track/145934738" title="Самурай — Осколки воздуха на Яндекс.Музыке"></iframe>
+            <a class="track-mobile-card" href="https://music.yandex.ru/album/39605257/track/145934738" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/cover-samuray.jpg" alt="Самурай">
+              <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
+            </a>
+          </div>
+          <div class="track-row__info">
+            <div class="track-row__num">04</div>
+            <h3 class="track-row__title">Самурай</h3>
+            <p class="track-row__desc">Чистая скорость и ярость без тормозов. У самурая нет цели — только путь, катана и 170 BPM. Плотный гитарный звук, бешеный бит, припев, который хочется орать. Если нужен один трек для разогрева — это он.</p>
+          </div>
+        </div>
+
+        <!-- Трек 5 — Вернись -->
+        <div class="track-row">
+          <div class="track-row__player">
+            <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;max-width:450px;height:200px;" src="https://music.yandex.kz/iframe/album/40518782/track/147888904" title="Вернись — Осколки воздуха на Яндекс.Музыке"></iframe>
+            <a class="track-mobile-card" href="https://music.yandex.ru/album/40518782/track/147888904" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/cover-vernис.jpg" alt="Вернись">
+              <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
+            </a>
+          </div>
+          <div class="track-row__info">
+            <div class="track-row__num">05</div>
+            <h3 class="track-row__title">Вернись</h3>
+            <p class="track-row__desc">Трек для тех, кто 14 февраля не празднует. История про парня, который не смог отпустить — набранные и удалённые сообщения в три ночи, пустая половина кровати. Наша анти-валентинка — яростная тоска, которую проживаешь вместе с нами.</p>
+          </div>
+        </div>
+
+        <!-- Трек 6 — Жестоко -->
+        <div class="track-row track-row--reverse">
+          <div class="track-row__player">
+            <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;max-width:450px;height:200px;" src="https://music.yandex.kz/iframe/album/41346346/track/149714228" title="Жестоко — Осколки воздуха на Яндекс.Музыке"></iframe>
+            <a class="track-mobile-card" href="https://music.yandex.kz/album/41346346/track/149714228" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/cover-jestoko.jpg" alt="Жестоко">
+              <span class="track-mobile-card__btn">Слушать на Яндекс Музыке</span>
+            </a>
+          </div>
+          <div class="track-row__info">
+            <div class="track-row__num">06</div>
+            <h3 class="track-row__title">Жестоко</h3>
+            <p class="track-row__desc">Исповедь на стыке нежности и саморазрушения. Сирень, школьные уроки, джин — бытовые детали складываются в историю отношений, где нежность и боль неразличимы. Жёсткие гитарные риффы врезаются в мелодичные синты — как конфликт внутри героя, который не может ни остаться, ни уйти.</p>
+          </div>
+        </div>
+
+      </div>
+      <a href="https://band.link/oskolkivozduha" class="music__bandlink" target="_blank" rel="noopener noreferrer">
+        Слушать на всех площадках →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. КОНЦЕРТЫ
+============================================================ -->
+<section class="section" id="concerts">
+  <div class="container">
+    <h2 class="section-title">Мы уже были на...</h2>
+    <div class="concerts-grid concerts-grid--flat">
+      <div class="concert-card"><img src="assets/img/poster-kino-na-trave.jpg" alt="Кино на траве" /></div>
+      <div class="concert-card"><img src="assets/img/poster-balkon-kvartirnik.jpg" alt="Квартирник на Балконе" /></div>
+      <div class="concert-card"><img src="assets/img/poster-sozdavay-ck19.jpg" alt="Форум Создавай — ЦК19" /></div>
+      <div class="concert-card"><img src="assets/img/poster-open-call-djem.jpg" alt="ДЖЭМ" /></div>
+      <div class="concert-card"><img src="assets/img/poster-bashnya.jpg" alt="Пикник на Башне" /></div>
+      <div class="concert-card"><img src="assets/img/poster-sodruzhestvo-concert.jpg" alt="Концерт в Содружестве" /></div>
+      <div class="concert-card"><img src="assets/img/poster-garazhka-big-summer-fest.jpg" alt="BIG SUMMER FEST Garazhka" /></div>
+      <div class="concert-card"><img src="assets/img/domrm.jpg" alt="Бар Дом РМ" /></div>
+      <div class="concert-card"><img src="assets/img/uzdechka.jpg" alt="Уzдечка" /></div>
+      <div class="concert-card"><img src="assets/img/poster-neti.jpg" alt="День НГТУ НЭТИ" /></div>
+      <div class="concert-card"><img src="assets/img/poster-domrm-may.jpg" alt="Дом РМ — 23 мая" /></div>
+      <div class="concert-card"><img src="assets/img/poster-mediana.jpg" alt="Медиана — 30 мая" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. СОТРУДНИЧЕСТВО
+============================================================ -->
+<section class="section section--alt" id="booking">
+  <div class="container">
+    <h2 class="section-title">Сотрудничество</h2>
+    <p class="booking__subtitle">Живой звук для вашего мероприятия — энергичный поп-панк сет до 90 минут</p>
+    <div class="booking__buttons">
+      <a href="https://t.me/platoniqa" class="btn-red btn-red--outline" target="_blank" rel="noopener noreferrer">
+        Связаться с менеджером
+      </a>
+      <a href="assets/files/rider.txt" class="btn-red" download>
+        Скачать тех. райдер
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__socials">
+      <a href="https://t.me/oskolkivozduha228" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <a href="https://vk.com/oskolkivozduha228" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+      <a href="https://tiktok.com/@oskolkivozduha228" target="_blank" rel="noopener noreferrer">TikTok</a>
+    </div>
+    <p class="footer__copy">© 2024–2026 Осколки воздуха • Новосибирск</p>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="assets/js/main.js"></script>
+<script>
+  // Video switcher for biography section
+  document.querySelectorAll('.bio__video-switcher button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all buttons and frames
+      document.querySelectorAll('.bio__video-switcher button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.bio__video-frame').forEach(f => f.classList.remove('active'));
+      // Activate clicked
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-video');
+      document.getElementById('video-' + target).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
